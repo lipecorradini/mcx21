@@ -27,7 +27,7 @@ def solve(n, x):
     corals = list(map(int, input().split()))
 
     min_height = 0
-    max_height = x + sum(corals)
+    max_height = x + max(corals)
 
     print(find_amount(min_height, max_height, corals, n, x))
 
