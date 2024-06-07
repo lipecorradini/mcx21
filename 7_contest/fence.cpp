@@ -52,7 +52,6 @@ int main()
     }
 
     if(iseq == 1){
-        // cout << "ehh\n";
         cout << 1 << '\n';
     }
     else{

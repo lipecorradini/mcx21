@@ -12,12 +12,12 @@ int main() {
 
     
     int V, E;
-    vector<vector<int>> dist(NODES, vector<int>(NODES, INF));
     cin >> V >> E;
     int contnet = 1;
 
     while(V != 0 && E != 0){
 
+        vector<vector<int>> dist(NODES, vector<int>(NODES, INF));
         map<string, int> setNum;
 
         string a, b;
@@ -40,8 +40,7 @@ int main() {
         for (int i = 0; i < V; i++) {
             dist[i][i] = 0;
         }   
-    
-    
+
         // Algoritmo de Floyd-Warshall
         for (int k = 0; k < V; k++)
             for (int i = 0; i < V; i++)
@@ -50,11 +49,14 @@ int main() {
         
         
         int great = 0;
+        bool isvalid = true;  
 
         for(int i = 0; i < V; i++){
             for(int j = 0; j < V; j++){
-                if(dist[i][j] == INF){
-                    cout << "Network " << contnet << ":DISCONNECTED" << '\n';
+                if(dist[i][j] == INF && isvalid){
+                    cout << "Network " << contnet << ": DISCONNECTED" << '\n';
+                    cout << '\n';
+                    isvalid = false;
                     break;
                 }
                 else if(dist[i][j] > great && dist[i][j] < INF){
@@ -64,9 +66,9 @@ int main() {
             }
         }
 
-        if(great > 0 && great < INF){
-            cout << "Network " << contnet << ":" << great << '\n';
-
+        if(great > 0 && great < INF && isvalid){
+            cout << "Network " << contnet << ": " << great << '\n';
+            cout << '\n';
         }
 
         contnet ++;

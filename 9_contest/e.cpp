@@ -13,18 +13,22 @@ int main() {
         int n, k;
         cin >> n >> k;
 
-        vector<long> arr(n * k);
+        vector<long long> arr(n * k);
 
         for(int j = 0; j < n * k; j++){
             cin >> arr[j];
         }
 
-        
-        for(int j = n*k - n; j >=0; j-= n){
-            cout << arr[j] << " ";
+        long long soma = 0;  
+        int l = 0;
+        while(l < k){
+            // cout << arr[n * k - (n/2 + 1) * (l + 1)] << endl;
+            soma += arr[n * k - (n/2 + 1) * (l + 1)];
+            l++;
         }
 
-        cout << endl;
+        cout << soma << endl;
+        
     }
 
 }
