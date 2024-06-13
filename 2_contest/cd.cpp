@@ -9,30 +9,33 @@ int main()
 
     int n, m;
     cin >> n >> m;
+    while(n != 0 && m != 0){
+        
+        set<long long> cds;
 
-    set<int> cds;
-
-    for (int i = 0; i < n; i++)
-    {
-        int value;
-        cin >> value;
-        cds.insert(value);
-    }
-
-    int cont = 0;
-
-    for (int j = 0; j < m; j++)
-    {
-        int value;
-        cin >> value;
-        if (cds.find(value) != cds.end())
+        for (int i = 0; i < n; i++)
         {
-            cont++;
+            long long value;
+            cin >> value;
+            cds.insert(value);
         }
+
+        int cont = 0;
+
+        for (int j = 0; j < m; j++)
+        {
+            long long value;
+            cin >> value;
+            if (cds.find(value) != cds.end())
+            {
+                cont++;
+            }
+        }
+
+        cin >> n >> m;
+
+        cout << cont;
     }
 
-    int a, b;
-    cin >> a >> b;
-
-    cout << cont;
+    
 }
