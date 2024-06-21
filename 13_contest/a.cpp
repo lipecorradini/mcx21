@@ -31,7 +31,7 @@ float dist(float x1, float x2, float y1, float y2) {
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
-
+    
     int t;
     cin >> t;
     while(t > 0) {
