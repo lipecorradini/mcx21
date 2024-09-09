@@ -1,0 +1,26 @@
+
+# a função abaixo foi retirada de https://medium.com/@ruiminpan62/simple-dynamic-programming-with-dice-837bbf53a98c
+def dice_sum_dp(n, x):
+    # set up dsum (dp table)
+    mx = min(x, 6)
+    dsum = [[0]*x for i in range(n)]
+    for i in range(mx):
+        dsum[0][i] = 1
+
+    for i in range(1, n):
+        for j in range(1, x):
+            k = 1
+            while( j-k >= 0 and k <= 6):
+                dsum[i][j] += dsum[i-1][j-k]
+                k += 1
+
+    return dsum[-1][-1]
+
+def main():
+    n, a, b = [int(x) for x in input().split()]    
+    tot = 0
+    for i in range(a, b+1):
+        tot += dice_sum_dp(n, i)
+    print(tot)
+    print(f"{tot/6**n:.6f}")
+main()
