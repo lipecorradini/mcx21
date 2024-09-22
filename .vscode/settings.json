@@ -4,6 +4,7 @@
         "iosfwd": "cpp",
         "tuple": "cpp",
         "ranges": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "cmath": "cpp"
     }
 }
